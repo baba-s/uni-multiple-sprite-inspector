@@ -31,4 +31,4 @@ border を編集できるようになります
 ## 謝辞
 
 - 「UniMultipleSpriteInspector」のデモで下記のコンテンツを使用させていただいております
--- ジュエルセイバーFREE（http://www.jewel-s.jp/）
+    - ジュエルセイバーFREE（http://www.jewel-s.jp/）

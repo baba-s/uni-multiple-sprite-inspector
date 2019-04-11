@@ -76,6 +76,9 @@ public sealed class UniMultipleSpriteInspector : Editor
 		var index			= Array.FindIndex( spritesheet, c => c.name == sprite.name );
 		var spriteMetaData	= spritesheet[ index ];
 		var rect			= spriteMetaData.rect;
+		var width			= rect.width;
+		var height			= rect.height;
+		var oldBorder		= m_border;
 
 		var enabled = GUI.enabled;
 		GUI.enabled = false;
@@ -86,10 +89,22 @@ public sealed class UniMultipleSpriteInspector : Editor
 
 		m_border = EditorGUILayout.Vector4Field( "Border", m_border );
 
-		m_border.x = Mathf.Max( m_border.x, 0 );
-		m_border.y = Mathf.Max( m_border.y, 0 );
-		m_border.z = Mathf.Max( m_border.z, 0 );
-		m_border.w = Mathf.Max( m_border.w, 0 );
+		if ( oldBorder.x != m_border.x )
+		{
+			m_border.x = ( int )Mathf.Clamp( m_border.x, 0, width - m_border.z );
+		}
+		if ( oldBorder.y != m_border.y )
+		{
+			m_border.y = ( int )Mathf.Clamp( m_border.y, 0, height - m_border.w );
+		}
+		if ( oldBorder.z != m_border.z )
+		{
+			m_border.z = ( int )Mathf.Clamp( m_border.z, 0, width  - m_border.x );
+		}
+		if ( oldBorder.w != m_border.w )
+		{
+			m_border.w = ( int )Mathf.Clamp( m_border.w, 0, height - m_border.y );
+		}
 
 		GUILayout.BeginHorizontal();
 

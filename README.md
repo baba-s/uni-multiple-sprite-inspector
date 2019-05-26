@@ -32,3 +32,8 @@ border を編集できるようになります
 
 - 「UniMultipleSpriteInspector」のデモで下記のコンテンツを使用させていただいております
     - ジュエルセイバーFREE（http://www.jewel-s.jp/）
+
+## 既知の不具合
+
+- UniMultipleSpriteInspector を Unity プロジェクトに導入すると  
+Sprite 選択ウィンドウでプレビューが正常に表示されなくなる  
